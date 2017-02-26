@@ -36,3 +36,37 @@ body{
     box-shadow: 0 0 12px rgba(0,255,255,0.76);
     cursor: pointer;
 }
+
+
+#styleBtn{
+    width: 290px;
+    height: 40px;
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    transform: scale(1.5);
+    opacity: 0;
+    transition: 2s;
+}
+
+#styleBtn li{
+    color: rgba(127,255,255,0.75);
+    border: 1px solid rgba(27,255,255,0.75);
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Microsoft yahei';
+    padding: 10px;
+    float: left;
+    border-radius: 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#styleBtn li:hover{
+    background: rgba(0,255,255,0.75);
+    color: #fff;
+}
+
+#styleBtn li:active{
+    color: #000;
+}

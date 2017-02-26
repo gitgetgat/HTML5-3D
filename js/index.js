@@ -20,10 +20,29 @@ $(function () {
         }
         setTimeout(function () {
             Grid();
-        }, 300)
+            $('#styleBtn').css({
+                'transform':'scale(1)',
+                'opacity':'1'
+            })
+        }, 300);
+        $('#styleBtn li').click(function () {
+            var index = $(this).index();
+            switch (index) {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    Helix();
+                    break;
+                case 3:
+                    Grid();
+                    break;
+            }
+        })
     }
 
-
+    //网格
     function Grid() {
         var tx = 300, ty = 300, tz = 500;//水平 垂直间隔
         var firstX = -2 * tx;//第一个li水平偏移量
@@ -40,9 +59,21 @@ $(function () {
         })
     }
 
-    //拖拽 滚轮
+    //螺旋
+    function Helix() {
+        var roY = 10, tY = 10;
+        var midli = Math.floor($('#main li').length / 2);
+        var firsttY = -10*midli;
+        $('#main li').each(function (i) {
+            $(this).css({
+                'transform': 'rotateY(' + roY * i + 'deg) translateY(' + (firsttY + tY * i) + 'px) translateZ(1200px)'
+            });
+        })
+    }
+
+    //拖拽 滚轮 功能
     (function () {
-        var nowX, lastX, minusX=0, nowY, lastY, minusY=0;
+        var nowX, lastX, minusX = 0, nowY, lastY, minusY = 0;
         var roX = 0, roY = 0, tz = -1500;
         var timer1, timer2;
         $(document).mousedown(function (ev) {
